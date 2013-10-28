@@ -19,3 +19,9 @@ class SongTests(TestCase):
         response = self.client.get('/songs/'+str(test_song.pk)+'/')
         self.assertEqual(response.status_code, 200)
         
+
+class SearchTest(TestCase):
+    
+    def test_search_page_exists(self):
+        response = self.client.get('/search/')
+        self.assertEqual(response.status_code, 200)

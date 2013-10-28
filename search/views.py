@@ -1,1 +1,5 @@
-# Create your views here.
+from django.shortcuts import render
+
+def searchpage(request):
+    return render(request, 'search.html', [])
+
