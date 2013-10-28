@@ -43,5 +43,6 @@ def results(request, search_query):
     return display_search_results(request, search_query, refresh=True)
 
 def looked_for(request, search_query):
+    print search_query
     return display_search_results(request, search_query, refresh=False)
 
