@@ -7,4 +7,5 @@ urlpatterns = patterns('',
                        url(r'^$', 'SoundScout.views.index', name='index'),
                        url(r'^admin/', include(admin.site.urls)),
                        url(r'^songs/', include('songs.urls')),
+                       url(r'^search/', include('search.urls')),
 )
