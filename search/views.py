@@ -17,6 +17,7 @@ def find_query(search_terms):
         hyped_results = r1.json()["songs"][0:15]
         for result in hyped_results:
             new_song = Song()
+            new_song.downloads = 0
             new_song.title =  result['song_name']
             new_song.artist =  result['song_artist']
             new_song.artwork =  result['song_image']

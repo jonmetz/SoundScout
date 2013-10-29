@@ -9,7 +9,7 @@ class Song(models.Model):
     artist = models.CharField(max_length=40)
     artwork = models.URLField()
     url = models.URLField()
-    #downloads = models.
+    downloads = models.IntegerField()
     #size = models.length(max_length=5)
     #bitrate =     
     
