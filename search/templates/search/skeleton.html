@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+
+     <title>{% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div class="masthead">
+        <h3 class="text-muted">SoundScout</h3>
+        <ul class="nav nav-justified">
+          <li class="active"><a href="/">Search</a></li>
+          <li class=""><a href="/Browse">Browse</a></li>
+          <li><a href="/About">About</a></li>
+          <li><a href="/Contact">Contact</a></li>
+          <li><a href="/Legal">Legal</a></li>
+	  <li><form class="navbar-form" role="search" action="http://127.0.0.1:8000/search/form.html" method="get">
+	      <div class="form-group">
+		<input id="q"type="text" class="form-control" placeholder="Search" name="q">
+	  </div></li>
+        </ul>
+      </div>
+{% block content %}{% endblock %}
+      <!-- Site footer -->
+      <div class="footer">
+        <p>&copy; SoundScout 2013</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+

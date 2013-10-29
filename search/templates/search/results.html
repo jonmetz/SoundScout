@@ -1,13 +1,26 @@
-<html>
-  <head>
-  </head>
-  <body>
-    <ul>
+{% extends  "search/skeleton.html" %}
+{% block title %}Results for {{ search_terms }}{% endblock %}
+{% block content %}
+<ul>
+  {% if not results %}
+  No results found, try again
+  {% else %}
+  <table class="table>
+    <thead>
+      <tr>
+	<th>Artwork</th>
+	<th>Song</th>
+      </tr>
+    </thead>
+    <tbody>
       {% for result in results %}
-        <li><a href="/songs/{{ result.id }}/">{{ result.title }} by {{ result.artist }}</a></li>
+      <tr>
+	<td><img src="{{ result.artwork }}" width="42" height="42"></td>
+	<td><a href="{{ result.url }}">{{ result.title }}</a> by {{ result.artist }}</td>
+      </tr>
       {% endfor %}
-    </ul>
-  </body>
-</html>
-	
-
+    </tbody>
+  </table>
+  {% endif %}
+</ul>
+{% endblock %}

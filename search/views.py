@@ -10,8 +10,8 @@ def searchpage(request):
 def searchform(request):
     return results(request, request.GET['q'])
 
-def find_query(search_query):
-    r1 = requests.get("http://hypedmusic.com/mobi/searchSongs.php?query="+search_query)
+def find_query(search_terms):
+    r1 = requests.get("http://hypedmusic.com/mobi/searchSongs.php?query="+search_terms)
     if r1.json()["total_results"]:
         hyped_results = r1.json()["songs"][0:15]
         for result in hyped_results:
@@ -27,22 +27,24 @@ def find_query(search_query):
         return False
 
 
-def display_search_results(request, search_query, refresh=False):
-    results = Song.objects.filter(title__icontains=search_query)
-    #results = Song.objects.filter(artist__icontains=search_query)
+def display_search_results(request, search_terms, refresh=False):
+    if search_terms != '':
+        results = Song.objects.filter(title__icontains=search_terms)
+        #results = Song.objects.filter(artist__icontains=search_query)
+    else:
+        results = []
     if not results and refresh:
-        context = {'search_query': search_query}
-        t = threading.Thread(target=find_query, args=[search_query])
+        context = {'search_terms': search_terms}
+        t = threading.Thread(target=find_query, args=[search_terms])
         t.start()
         return render(request, 'search/just_a_sec.html', context)
     else:
         context = {'found': True, 'results': results}
         return render(request, 'search/results.html', context)
 
-def results(request, search_query):
-    return display_search_results(request, search_query, refresh=True)
+def results(request, search_terms):
+    return display_search_results(request, search_terms, refresh=True)
 
-def looked_for(request, search_query):
-    print search_query
-    return display_search_results(request, search_query, refresh=False)
+def looked_for(request, search_terms):
+    return display_search_results(request, search_terms, refresh=False)
 
