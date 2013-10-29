@@ -16,7 +16,7 @@
       {% for result in results %}
       <tr>
 	<td><img src="{{ result.artwork }}" width="42" height="42"></td>
-	<td><a href="{{ result.url }}">{{ result.title }}</a> by {{ result.artist }}</td>
+	<td><a href="/songs/{{ result.pk }}/">{{ result.title }}</a> by {{ result.artist }}</td>
       </tr>
       {% endfor %}
     </tbody>
