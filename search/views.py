@@ -32,7 +32,7 @@ def display_search_results(request, search_terms, refresh=False):
         results = Song.objects.filter(title__icontains=search_terms)
         #results = Song.objects.filter(artist__icontains=search_query)
     else:
-        results = []
+        return render(request, 'search/just_a_sec.html', context)
     if not results and refresh:
         context = {'search_terms': search_terms}
         t = threading.Thread(target=find_query, args=[search_terms])
