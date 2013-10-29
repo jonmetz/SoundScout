@@ -38,7 +38,8 @@ def display_search_results(request, search_terms, refresh=False):
         t = threading.Thread(target=find_query, args=[search_terms])
         t.start()
         return render(request, 'search/just_a_sec.html', context)
-    else:
+    else:        
+        [results[i] for i in xrange(0,15) if results.count() > 15]
         context = {'found': True, 'results': results}
         return render(request, 'search/results.html', context)
 
