@@ -9,7 +9,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-"""DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'Sound',                      # Or path to database file if using sqlite3.
@@ -20,7 +20,7 @@ MANAGERS = ADMINS
         'PORT': '',                      # Set to empty string for default.
     }
 }
-"""
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = []
