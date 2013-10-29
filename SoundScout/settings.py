@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     'songs',
     'search',
     'django.contrib.admin',
+    'gunicorn',
     
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
