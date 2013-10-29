@@ -3,6 +3,7 @@ from django.shortcuts import render
 import requests
 from songs.models import Song
 
+
 def searchpage(request):
     context = []
     return render(request, 'search/search.html', context)
@@ -32,6 +33,7 @@ def display_search_results(request, search_terms, refresh=False):
         results = Song.objects.filter(title__icontains=search_terms)
         #results = Song.objects.filter(artist__icontains=search_query)
     else:
+        context = {'search_terms': search_terms}
         return render(request, 'search/just_a_sec.html', context)
     if not results and refresh:
         context = {'search_terms': search_terms}
