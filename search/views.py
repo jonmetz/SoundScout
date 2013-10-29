@@ -30,8 +30,7 @@ def find_query(search_terms):
 
 def display_search_results(request, search_terms, refresh=False):
     if search_terms != '':
-        results = Song.objects.filter(title__icontains=search_terms)
-        #results = Song.objects.filter(artist__icontains=search_query)
+        results = list(set(Song.objects.filter(title__icontains=search_terms) | Song.objects.filter(artist__icontains=search_terms)))[0:20]
     else:
         context = {'search_terms': search_terms}
         return render(request, 'search/just_a_sec.html', context)
@@ -41,7 +40,6 @@ def display_search_results(request, search_terms, refresh=False):
         t.start()
         return render(request, 'search/just_a_sec.html', context)
     else:        
-        [results[i] for i in xrange(0,15) if results.count() > 15]
         context = {'found': True, 'results': results}
         return render(request, 'search/results.html', context)
 
