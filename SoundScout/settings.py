@@ -125,7 +125,6 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable the admin:
     'songs',
     'search',
-    'bootstrap_toolkit',
     'django.contrib.admin',
     
     # Uncomment the next line to enable admin documentation:
