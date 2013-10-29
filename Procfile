@@ -1,1 +1,1 @@
-web: gunicorn SoundScout.wsgi
+web: gunicorn SoundScout.wsgi.py
