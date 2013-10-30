@@ -1,3 +1,9 @@
+# Stuff I added for system independent way of writing paths
+import os
+from unipath import Path
+
+PROJECT_DIR = Path(os.path.abspath(__file__)).ancestor(1)
+
 # Django settings for SoundScout project.
 
 DEBUG = True
@@ -112,7 +118,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/home/jonzitome/SoundScout/templates/',
+    PROJECT_DIR.child("static"),
 )
 
 INSTALLED_APPS = (
@@ -182,4 +188,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+
 
