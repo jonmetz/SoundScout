@@ -1,9 +1,9 @@
-# Stuff I added for system independent way of writing paths
+"""# Stuff I added for system independent way of writing paths
 import os
 from unipath import Path
 
 PROJECT_DIR = Path(os.path.abspath(__file__)).ancestor(1)
-
+"""
 # Django settings for SoundScout project.
 
 DEBUG = True
